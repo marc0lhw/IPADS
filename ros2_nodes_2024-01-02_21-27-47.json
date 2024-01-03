@@ -1,0 +1,175 @@
+{
+    "nodes": [
+        {
+            "node_name": "/listener",
+            "subscriptions": [
+                {
+                    "name": "/chatter",
+                    "type": "std_msgs/msg/String"
+                },
+                {
+                    "name": "/parameter_events",
+                    "type": "rcl_interfaces/msg/ParameterEvent"
+                }
+            ],
+            "publications": [
+                {
+                    "name": "/parameter_events",
+                    "type": "rcl_interfaces/msg/ParameterEvent"
+                },
+                {
+                    "name": "/rosout",
+                    "type": "rcl_interfaces/msg/Log"
+                }
+            ],
+            "service_servers": [
+                {
+                    "name": "/listener/describe_parameters",
+                    "type": "rcl_interfaces/srv/DescribeParameters"
+                },
+                {
+                    "name": "/listener/get_parameter_types",
+                    "type": "rcl_interfaces/srv/GetParameterTypes"
+                },
+                {
+                    "name": "/listener/get_parameters",
+                    "type": "rcl_interfaces/srv/GetParameters"
+                },
+                {
+                    "name": "/listener/list_parameters",
+                    "type": "rcl_interfaces/srv/ListParameters"
+                },
+                {
+                    "name": "/listener/set_parameters",
+                    "type": "rcl_interfaces/srv/SetParameters"
+                },
+                {
+                    "name": "/listener/set_parameters_atomically",
+                    "type": "rcl_interfaces/srv/SetParametersAtomically"
+                }
+            ],
+            "service_clients": null,
+            "action_servers": null,
+            "action_clients": null,
+            "duplicated": false,
+            "info": null
+        },
+        {
+            "node_name": "/talker",
+            "subscriptions": [
+                {
+                    "name": "/parameter_events",
+                    "type": "rcl_interfaces/msg/ParameterEvent"
+                }
+            ],
+            "publications": [
+                {
+                    "name": "/chatter",
+                    "type": "std_msgs/msg/String"
+                },
+                {
+                    "name": "/parameter_events",
+                    "type": "rcl_interfaces/msg/ParameterEvent"
+                },
+                {
+                    "name": "/rosout",
+                    "type": "rcl_interfaces/msg/Log"
+                }
+            ],
+            "service_servers": [
+                {
+                    "name": "/talker/describe_parameters",
+                    "type": "rcl_interfaces/srv/DescribeParameters"
+                },
+                {
+                    "name": "/talker/get_parameter_types",
+                    "type": "rcl_interfaces/srv/GetParameterTypes"
+                },
+                {
+                    "name": "/talker/get_parameters",
+                    "type": "rcl_interfaces/srv/GetParameters"
+                },
+                {
+                    "name": "/talker/list_parameters",
+                    "type": "rcl_interfaces/srv/ListParameters"
+                },
+                {
+                    "name": "/talker/set_parameters",
+                    "type": "rcl_interfaces/srv/SetParameters"
+                },
+                {
+                    "name": "/talker/set_parameters_atomically",
+                    "type": "rcl_interfaces/srv/SetParametersAtomically"
+                }
+            ],
+            "service_clients": null,
+            "action_servers": null,
+            "action_clients": null,
+            "duplicated": true,
+            "info": "There are 2 nodes in the graph with the exact name \"/talker\". You are seeing information about only one of them.\n"
+        },
+        {
+            "node_name": "/talker",
+            "subscriptions": [
+                {
+                    "name": "/parameter_events",
+                    "type": "rcl_interfaces/msg/ParameterEvent"
+                }
+            ],
+            "publications": [
+                {
+                    "name": "/chatter",
+                    "type": "std_msgs/msg/String"
+                },
+                {
+                    "name": "/parameter_events",
+                    "type": "rcl_interfaces/msg/ParameterEvent"
+                },
+                {
+                    "name": "/rosout",
+                    "type": "rcl_interfaces/msg/Log"
+                }
+            ],
+            "service_servers": [
+                {
+                    "name": "/talker/describe_parameters",
+                    "type": "rcl_interfaces/srv/DescribeParameters"
+                },
+                {
+                    "name": "/talker/get_parameter_types",
+                    "type": "rcl_interfaces/srv/GetParameterTypes"
+                },
+                {
+                    "name": "/talker/get_parameters",
+                    "type": "rcl_interfaces/srv/GetParameters"
+                },
+                {
+                    "name": "/talker/list_parameters",
+                    "type": "rcl_interfaces/srv/ListParameters"
+                },
+                {
+                    "name": "/talker/set_parameters",
+                    "type": "rcl_interfaces/srv/SetParameters"
+                },
+                {
+                    "name": "/talker/set_parameters_atomically",
+                    "type": "rcl_interfaces/srv/SetParametersAtomically"
+                }
+            ],
+            "service_clients": null,
+            "action_servers": null,
+            "action_clients": null,
+            "duplicated": true,
+            "info": "There are 2 nodes in the graph with the exact name \"/talker\". You are seeing information about only one of them.\n"
+        }
+    ],
+    "duplicated_nodes": {
+        "/talker": 2
+    },
+    "warning_messages": [
+        "WARNING: Be aware that are nodes in the graph that share an exact name, this can have unintended side effects."
+    ],
+    "info_messages": {
+        "/talker": "There are 2 nodes in the graph with the exact name \"/talker\". You are seeing information about only one of them.\n"
+    }
+}

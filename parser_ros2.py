@@ -7,7 +7,7 @@ current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 def parse_ros2_node_info(node_name):
     result = subprocess.run(['ros2', 'node', 'info', node_name], capture_output=True, text=True)
     if result.returncode == 0:
-        return result.stdout
+        return result.stdout, result.stderr
     else:
         return None
 
@@ -92,7 +92,7 @@ def add_topic_info(topics_info, topic_name, topic_type, pub_node, sub_node):
     if sub_node:
         topics_info[topic_name]['sub'].append(sub_node)
 
-def save_ros2_additional_info_to_json(nodes_info):
+def save_ros2_additional_info_to_json(nodes_info, duplicate_nodes, warning_messages):
     topics_info = {}
     services_info = {}
     actions_info = {}
@@ -168,10 +168,20 @@ def save_ros2_node_info_to_json():
         return
 
     nodes = result.stdout.splitlines()
+    warnings = result.stderr.splitlines()
     node_info_list = []
+    duplicate_nodes = {}
+    warning_messages = []
+    info_messages = {}
 
+    # Check for warning messages
+    warning_prefix = 'WARNING: '
+    for warning in warnings:
+        if warning.startswith(warning_prefix):
+            warning_messages.append(warning)
+    
     for node_name in nodes:
-        info_output = parse_ros2_node_info(node_name)
+        info_output, info_err = parse_ros2_node_info(node_name)
         if info_output is not None:
             parsed_info = {
                 'node_name': node_name,
@@ -180,7 +190,9 @@ def save_ros2_node_info_to_json():
                 'service_servers': [],
                 'service_clients': [],
                 'action_servers': [],
-                'action_clients': []
+                'action_clients': [],
+                'duplicated': "nodes in the graph with the exact name" in info_err,
+                'info': info_err if info_err != "" else None
             }
 
             section = None
@@ -207,9 +219,27 @@ def save_ros2_node_info_to_json():
                 if isinstance(value, list) and not value:
                     parsed_info[key] = None
 
+            # if duplicated node
+            if parsed_info['duplicated']:
+                # Check for duplicate nodes
+                if node_name in duplicate_nodes:
+                    duplicate_nodes[node_name] += 1
+                else:
+                    duplicate_nodes[node_name] = 1
+
+            # if info
+            if parsed_info['info']:
+                info_messages[node_name] = info_err
+
             node_info_list.append(parsed_info)
 
-    data_to_save = {'nodes': node_info_list}
+     # Save duplicate nodes and warning messages
+    data_to_save = {
+        'nodes': node_info_list,
+        'duplicated_nodes': duplicate_nodes if duplicate_nodes else None,
+        'warning_messages': warning_messages if warning_messages else None,
+        'info_messages': info_messages if info_messages else None        
+    }
 
     output_file = f"ros2_nodes_{current_time}.json"
 
@@ -217,7 +247,7 @@ def save_ros2_node_info_to_json():
         json.dump(data_to_save, json_file, indent=4)
 
     # additional info
-    save_ros2_additional_info_to_json(node_info_list)
+    save_ros2_additional_info_to_json(node_info_list, duplicate_nodes, warning_messages)
 
 if __name__ == "__main__":
     save_ros2_node_info_to_json()

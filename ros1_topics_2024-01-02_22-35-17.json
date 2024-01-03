@@ -1,0 +1,54 @@
+{
+    "topics": [
+        {
+            "topic_name": "/chatter",
+            "pub": [
+                {
+                    "node_name": "/talker",
+                    "ip": "192.168.235.129",
+                    "port": "38635"
+                }
+            ],
+            "sub": [
+                {
+                    "node_name": "/listener",
+                    "ip": "192.168.235.129",
+                    "port": "37687"
+                }
+            ]
+        },
+        {
+            "topic_name": "/rosout",
+            "pub": [
+                {
+                    "node_name": "/listener",
+                    "ip": "192.168.235.129",
+                    "port": "37687"
+                },
+                {
+                    "node_name": "/talker",
+                    "ip": "192.168.235.129",
+                    "port": "38635"
+                }
+            ],
+            "sub": [
+                {
+                    "node_name": "/rosout",
+                    "ip": "192.168.235.129",
+                    "port": "35385"
+                }
+            ]
+        },
+        {
+            "topic_name": "/rosout_agg",
+            "pub": [
+                {
+                    "node_name": "/rosout",
+                    "ip": "192.168.235.129",
+                    "port": "35385"
+                }
+            ],
+            "sub": null
+        }
+    ]
+}
