@@ -129,6 +129,12 @@ def parse_rosnode_info(info_output):
     return parsed_info
 
 def node_parser():
+    # rosnode cleanup 사전 수행
+    result = subprocess.run(['rosnode', 'cleanup'], capture_output=True, text=True)
+    if result.returncode != 0:
+        print("rosnode cleanup fail.")
+        exit()
+    
     nodes = get_rosnode_list()
     node_info_list = []
 
@@ -205,6 +211,6 @@ def service_parser():
         json.dump(data_to_save, json_file, indent=4)
 
 if __name__ == "__main__":
-    topic_parser()
     node_parser()
+    topic_parser()
     service_parser()
