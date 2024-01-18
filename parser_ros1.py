@@ -75,18 +75,14 @@ def topic_parser():
         json.dump(topic_data, json_file, indent=4)
 
 def get_rosnode_list():
-    result = subprocess.run(['rosnode', 'list'], capture_output=True, text=True)
-    if result.returncode == 0:
-        return result.stdout.splitlines()
-    else:
-        return []
+    command = "rosnode list"
+    nodes = run_command(command).split('\n')
+    return nodes
 
 def get_rosnode_info(node_name):
-    result = subprocess.run(['rosnode', 'info', node_name], capture_output=True, text=True)
-    if result.returncode == 0:
-        return result.stdout
-    else:
-        return None
+    command = f"rosnode info {node_name}"
+    info = run_command(command)
+    return info
 
 def parse_rosnode_info(info_output):
     parsed_info = {
@@ -129,12 +125,6 @@ def parse_rosnode_info(info_output):
     return parsed_info
 
 def node_parser():
-    # rosnode cleanup 사전 수행
-    result = subprocess.run(['rosnode', 'cleanup'], capture_output=True, text=True)
-    if result.returncode != 0:
-        print("rosnode cleanup fail.")
-        exit()
-    
     nodes = get_rosnode_list()
     node_info_list = []
 
@@ -152,18 +142,14 @@ def node_parser():
         json.dump(data_to_save, json_file, indent=4)
 
 def get_rosservice_list():
-    result = subprocess.run(['rosservice', 'list'], capture_output=True, text=True)
-    if result.returncode == 0:
-        return result.stdout.splitlines()
-    else:
-        return []
+    command = "rosservice list"
+    services = run_command(command).split('\n')
+    return services
 
 def get_rosservice_info(service_name):
-    result = subprocess.run(['rosservice', 'info', service_name], capture_output=True, text=True)
-    if result.returncode == 0:
-        return result.stdout
-    else:
-        return None
+    command = f"rosservice info {service_name}"
+    info = run_command(command)
+    return info
 
 def parse_rosservice_info(info_output, service_name):
     parsed_info = {
@@ -185,9 +171,10 @@ def parse_rosservice_info(info_output, service_name):
         elif line.startswith('Type:'):
             parsed_info['type'] = line.split(': ', 1)[1]
         elif line.startswith('Args:'):
-            args_match = re.match(r'(.+)$', line.split(': ', 1)[1])
-            if args_match:
-                parsed_info['args'] = args_match.groups()
+            if len(line.split(': ', 1)) == 1:
+                parsed_info['args'] = None
+            else:
+                parsed_info['args'] = line.split(': ', 1)[1].split()
 
     parsed_info['service_name'] = service_name 
     
@@ -211,6 +198,6 @@ def service_parser():
         json.dump(data_to_save, json_file, indent=4)
 
 if __name__ == "__main__":
-    node_parser()
     topic_parser()
+    node_parser()
     service_parser()
