@@ -1,32 +1,32 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import String
-import time
+from can_msgs.msg import ControlHardware  # Import the ControlHardware message type
 
-class Talker1(Node):
+class WMMotionControllerNode(Node):
 
     def __init__(self):
-        super().__init__('talk')
-        # type, topic
-        self.publisher_ = self.create_publisher(String, 'chatter', 10)
+        super().__init__('wm_motion_controller_node')
+        self.publisher_ = self.create_publisher(ControlHardware, '/can/control_hardware', 10)
         timer_period = 1  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
-        self.counter = 0
 
     def timer_callback(self):
-        # topic msg
-        msg = String()
-        msg.data = f'Hello World: {self.counter}, Time: {time.strftime("%H:%M:%S")}'
+        msg = ControlHardware()
+        msg.horn = True  # ON (1) or OFF (0)
+        msg.head_light = False  # ON (1) or OFF (0)
+        msg.left_light = True  # ON (1) or OFF (0)
+        msg.right_light = False  # ON (1) or OFF (0)
+        
         self.publisher_.publish(msg)
-        self.get_logger().info(f'Publishing: {msg.data}')
-        self.counter += 1
+        self.get_logger().info('Publishing ControlHardware message')
 
 def main(args=None):
     rclpy.init(args=args)
-    talker1 = Talker1()
-    rclpy.spin(talker1)
-    talker1.destroy_node()
+    wm_motion_controller_node = WMMotionControllerNode()
+    rclpy.spin(wm_motion_controller_node)
+    wm_motion_controller_node.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
+
