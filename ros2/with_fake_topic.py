@@ -7,15 +7,15 @@ class WMMotionControllerNode(Node):
     def __init__(self):
         super().__init__('wm_motion_controller_node')
         self.publisher_ = self.create_publisher(ControlHardware, '/can/control_hardware', 10)
-        timer_period = 1  # seconds
+        timer_period = 0.5  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
 
     def timer_callback(self):
         msg = ControlHardware()
         msg.horn = True  # ON (1) or OFF (0)
-        msg.head_light = False  # ON (1) or OFF (0)
+        msg.head_light = True  # ON (1) or OFF (0)
         msg.left_light = True  # ON (1) or OFF (0)
-        msg.right_light = False  # ON (1) or OFF (0)
+        msg.right_light = True  # ON (1) or OFF (0)
         
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing ControlHardware message')

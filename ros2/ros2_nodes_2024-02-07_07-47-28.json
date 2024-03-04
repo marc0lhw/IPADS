@@ -1,0 +1,185 @@
+{
+    "nodes": [
+        {
+            "node_name": "/WmMotionControllerNode",
+            "subscriptions": [
+                {
+                    "name": "/can/control_hardware",
+                    "type": "can_msgs/msg/ControlHardware"
+                },
+                {
+                    "name": "/cmd_vel",
+                    "type": "geometry_msgs/msg/Twist"
+                },
+                {
+                    "name": "/control/mode",
+                    "type": "can_msgs/msg/Mode"
+                },
+                {
+                    "name": "/imu/data",
+                    "type": "sensor_msgs/msg/Imu"
+                },
+                {
+                    "name": "/parameter_events",
+                    "type": "rcl_interfaces/msg/ParameterEvent"
+                }
+            ],
+            "publications": [
+                {
+                    "name": "/odom",
+                    "type": "nav_msgs/msg/Odometry"
+                },
+                {
+                    "name": "/parameter_events",
+                    "type": "rcl_interfaces/msg/ParameterEvent"
+                },
+                {
+                    "name": "/rosout",
+                    "type": "rcl_interfaces/msg/Log"
+                },
+                {
+                    "name": "/rtt_odom",
+                    "type": "geometry_msgs/msg/PoseStamped"
+                }
+            ],
+            "service_servers": [
+                {
+                    "name": "/WmMotionControllerNode/describe_parameters",
+                    "type": "rcl_interfaces/srv/DescribeParameters"
+                },
+                {
+                    "name": "/WmMotionControllerNode/get_parameter_types",
+                    "type": "rcl_interfaces/srv/GetParameterTypes"
+                },
+                {
+                    "name": "/WmMotionControllerNode/get_parameters",
+                    "type": "rcl_interfaces/srv/GetParameters"
+                },
+                {
+                    "name": "/WmMotionControllerNode/list_parameters",
+                    "type": "rcl_interfaces/srv/ListParameters"
+                },
+                {
+                    "name": "/WmMotionControllerNode/set_parameters",
+                    "type": "rcl_interfaces/srv/SetParameters"
+                },
+                {
+                    "name": "/WmMotionControllerNode/set_parameters_atomically",
+                    "type": "rcl_interfaces/srv/SetParametersAtomically"
+                }
+            ],
+            "service_clients": null,
+            "action_servers": null,
+            "action_clients": null,
+            "duplicated": false,
+            "info": null
+        },
+        {
+            "node_name": "/wm_motion_controller_node",
+            "subscriptions": null,
+            "publications": [
+                {
+                    "name": "/can/control_hardware",
+                    "type": "can_msgs/msg/ControlHardware"
+                },
+                {
+                    "name": "/parameter_events",
+                    "type": "rcl_interfaces/msg/ParameterEvent"
+                },
+                {
+                    "name": "/rosout",
+                    "type": "rcl_interfaces/msg/Log"
+                }
+            ],
+            "service_servers": [
+                {
+                    "name": "/wm_motion_controller_node/describe_parameters",
+                    "type": "rcl_interfaces/srv/DescribeParameters"
+                },
+                {
+                    "name": "/wm_motion_controller_node/get_parameter_types",
+                    "type": "rcl_interfaces/srv/GetParameterTypes"
+                },
+                {
+                    "name": "/wm_motion_controller_node/get_parameters",
+                    "type": "rcl_interfaces/srv/GetParameters"
+                },
+                {
+                    "name": "/wm_motion_controller_node/list_parameters",
+                    "type": "rcl_interfaces/srv/ListParameters"
+                },
+                {
+                    "name": "/wm_motion_controller_node/set_parameters",
+                    "type": "rcl_interfaces/srv/SetParameters"
+                },
+                {
+                    "name": "/wm_motion_controller_node/set_parameters_atomically",
+                    "type": "rcl_interfaces/srv/SetParametersAtomically"
+                }
+            ],
+            "service_clients": null,
+            "action_servers": null,
+            "action_clients": null,
+            "duplicated": true,
+            "info": "There are 2 nodes in the graph with the exact name \"/wm_motion_controller_node\". You are seeing information about only one of them.\n"
+        },
+        {
+            "node_name": "/wm_motion_controller_node",
+            "subscriptions": null,
+            "publications": [
+                {
+                    "name": "/can/control_hardware",
+                    "type": "can_msgs/msg/ControlHardware"
+                },
+                {
+                    "name": "/parameter_events",
+                    "type": "rcl_interfaces/msg/ParameterEvent"
+                },
+                {
+                    "name": "/rosout",
+                    "type": "rcl_interfaces/msg/Log"
+                }
+            ],
+            "service_servers": [
+                {
+                    "name": "/wm_motion_controller_node/describe_parameters",
+                    "type": "rcl_interfaces/srv/DescribeParameters"
+                },
+                {
+                    "name": "/wm_motion_controller_node/get_parameter_types",
+                    "type": "rcl_interfaces/srv/GetParameterTypes"
+                },
+                {
+                    "name": "/wm_motion_controller_node/get_parameters",
+                    "type": "rcl_interfaces/srv/GetParameters"
+                },
+                {
+                    "name": "/wm_motion_controller_node/list_parameters",
+                    "type": "rcl_interfaces/srv/ListParameters"
+                },
+                {
+                    "name": "/wm_motion_controller_node/set_parameters",
+                    "type": "rcl_interfaces/srv/SetParameters"
+                },
+                {
+                    "name": "/wm_motion_controller_node/set_parameters_atomically",
+                    "type": "rcl_interfaces/srv/SetParametersAtomically"
+                }
+            ],
+            "service_clients": null,
+            "action_servers": null,
+            "action_clients": null,
+            "duplicated": true,
+            "info": "There are 2 nodes in the graph with the exact name \"/wm_motion_controller_node\". You are seeing information about only one of them.\n"
+        }
+    ],
+    "duplicated_nodes": {
+        "/wm_motion_controller_node": 2
+    },
+    "warning_messages": [
+        "WARNING: Be aware that are nodes in the graph that share an exact name, this can have unintended side effects."
+    ],
+    "info_messages": {
+        "/wm_motion_controller_node": "There are 2 nodes in the graph with the exact name \"/wm_motion_controller_node\". You are seeing information about only one of them.\n"
+    }
+}

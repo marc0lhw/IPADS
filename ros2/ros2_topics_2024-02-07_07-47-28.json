@@ -1,0 +1,77 @@
+{
+    "topics": [
+        {
+            "topic_name": "/odom",
+            "pub": [
+                "/WmMotionControllerNode"
+            ],
+            "sub": null,
+            "type": "nav_msgs/msg/Odometry"
+        },
+        {
+            "topic_name": "/parameter_events",
+            "pub": [
+                "/WmMotionControllerNode",
+                "/wm_motion_controller_node",
+                "/wm_motion_controller_node"
+            ],
+            "sub": [
+                "/WmMotionControllerNode"
+            ],
+            "type": "rcl_interfaces/msg/ParameterEvent"
+        },
+        {
+            "topic_name": "/rosout",
+            "pub": [
+                "/WmMotionControllerNode",
+                "/wm_motion_controller_node",
+                "/wm_motion_controller_node"
+            ],
+            "sub": null,
+            "type": "rcl_interfaces/msg/Log"
+        },
+        {
+            "topic_name": "/rtt_odom",
+            "pub": [
+                "/WmMotionControllerNode"
+            ],
+            "sub": null,
+            "type": "geometry_msgs/msg/PoseStamped"
+        },
+        {
+            "topic_name": "/can/control_hardware",
+            "pub": [
+                "/wm_motion_controller_node",
+                "/wm_motion_controller_node"
+            ],
+            "sub": [
+                "/WmMotionControllerNode"
+            ],
+            "type": "can_msgs/msg/ControlHardware"
+        },
+        {
+            "topic_name": "/cmd_vel",
+            "pub": null,
+            "sub": [
+                "/WmMotionControllerNode"
+            ],
+            "type": "geometry_msgs/msg/Twist"
+        },
+        {
+            "topic_name": "/control/mode",
+            "pub": null,
+            "sub": [
+                "/WmMotionControllerNode"
+            ],
+            "type": "can_msgs/msg/Mode"
+        },
+        {
+            "topic_name": "/imu/data",
+            "pub": null,
+            "sub": [
+                "/WmMotionControllerNode"
+            ],
+            "type": "sensor_msgs/msg/Imu"
+        }
+    ]
+}

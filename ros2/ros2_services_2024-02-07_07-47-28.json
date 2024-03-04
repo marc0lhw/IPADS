@@ -1,0 +1,76 @@
+{
+    "services": [
+        {
+            "service_name": "/WmMotionControllerNode/describe_parameters",
+            "server": "WmMotionControllerNode",
+            "client": null,
+            "type": "rcl_interfaces/srv/DescribeParameters"
+        },
+        {
+            "service_name": "/WmMotionControllerNode/get_parameter_types",
+            "server": "WmMotionControllerNode",
+            "client": null,
+            "type": "rcl_interfaces/srv/GetParameterTypes"
+        },
+        {
+            "service_name": "/WmMotionControllerNode/get_parameters",
+            "server": "WmMotionControllerNode",
+            "client": null,
+            "type": "rcl_interfaces/srv/GetParameters"
+        },
+        {
+            "service_name": "/WmMotionControllerNode/list_parameters",
+            "server": "WmMotionControllerNode",
+            "client": null,
+            "type": "rcl_interfaces/srv/ListParameters"
+        },
+        {
+            "service_name": "/WmMotionControllerNode/set_parameters",
+            "server": "WmMotionControllerNode",
+            "client": null,
+            "type": "rcl_interfaces/srv/SetParameters"
+        },
+        {
+            "service_name": "/WmMotionControllerNode/set_parameters_atomically",
+            "server": "WmMotionControllerNode",
+            "client": null,
+            "type": "rcl_interfaces/srv/SetParametersAtomically"
+        },
+        {
+            "service_name": "/wm_motion_controller_node/describe_parameters",
+            "server": "wm_motion_controller_node",
+            "client": null,
+            "type": "rcl_interfaces/srv/DescribeParameters"
+        },
+        {
+            "service_name": "/wm_motion_controller_node/get_parameter_types",
+            "server": "wm_motion_controller_node",
+            "client": null,
+            "type": "rcl_interfaces/srv/GetParameterTypes"
+        },
+        {
+            "service_name": "/wm_motion_controller_node/get_parameters",
+            "server": "wm_motion_controller_node",
+            "client": null,
+            "type": "rcl_interfaces/srv/GetParameters"
+        },
+        {
+            "service_name": "/wm_motion_controller_node/list_parameters",
+            "server": "wm_motion_controller_node",
+            "client": null,
+            "type": "rcl_interfaces/srv/ListParameters"
+        },
+        {
+            "service_name": "/wm_motion_controller_node/set_parameters",
+            "server": "wm_motion_controller_node",
+            "client": null,
+            "type": "rcl_interfaces/srv/SetParameters"
+        },
+        {
+            "service_name": "/wm_motion_controller_node/set_parameters_atomically",
+            "server": "wm_motion_controller_node",
+            "client": null,
+            "type": "rcl_interfaces/srv/SetParametersAtomically"
+        }
+    ]
+}
